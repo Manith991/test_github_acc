@@ -48,4 +48,26 @@ void main() {
       }
     }
   }
+
+
+  int n = 0;
+  double total = 0.0;
+  while(true)
+  {
+    stdout.write("[${n+1}] (width height): ");
+    var line = stdin.readLineSync()!;
+    if(line.isEmpty) {
+      break;
+    }
+    var splits = line.split(' ');
+    if(splits.length < 2) {
+      print("Please enter exactly two numbers separated by space.");
+      continue;
+    }
+    var wd = double.parse(splits[0]);
+    var ht = double.parse(splits[1]);
+    total += wd * ht;
+    n++;
+  }
+  print("Total area: ${total.toStringAsFixed(3)}");
 }
